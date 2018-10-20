@@ -171,7 +171,7 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
 			SceneManager.LoadScene("Menu");
 		//	SceneManager.UnloadSceneAsync("Prueba");
 		}			
-		OnGUI();
+		// OnGUI();
 	}
 	//pija gordaa
 	public static MultiplayerConnection Instance{	
@@ -194,7 +194,7 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
             // We should *not* automatically accept it. Rather we store it and 
             // display an in-game popup:
             mIncomingInvitation = invitation;
-			GameObject.Find("Invitacion").GetComponent<Text>().text = invitation.InvitationId.ToString();
+			GameObject.Find("Invitacion").GetComponent<Text>().text = mIncomingInvitation.InvitationId.ToString();
         }
     }
 
