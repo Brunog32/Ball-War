@@ -171,9 +171,9 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
 			SceneManager.LoadScene("Menu");
 		//	SceneManager.UnloadSceneAsync("Prueba");
 		}			
-		
+		OnGUI();
 	}
-
+	//pija 
 	public static MultiplayerConnection Instance{	
 		get 
 		{
