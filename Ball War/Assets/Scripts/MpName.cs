@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MpName : MonoBehaviour {
-
+//comentario
 	public enum Index {First,Second};
 	public Index tipo;
 	public Transform camera;
