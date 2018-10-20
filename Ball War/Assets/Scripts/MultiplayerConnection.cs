@@ -173,7 +173,7 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
 		}			
 		OnGUI();
 	}
-	//pija 
+	//pija gordaa
 	public static MultiplayerConnection Instance{	
 		get 
 		{
