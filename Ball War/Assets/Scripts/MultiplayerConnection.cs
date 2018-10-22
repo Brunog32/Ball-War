@@ -169,9 +169,9 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape)){
 			SceneManager.LoadScene("Menu");
-		//	SceneManager.UnloadSceneAsync("Prueba");
+			PlayGamesPlatform.Instance.RealTime.LeaveRoom();
 		}			
-		// OnGUI();
+		
 	}
 	//pija gordaa
 	public static MultiplayerConnection Instance{	
@@ -184,15 +184,10 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
 	public void OnInvitationReceived(Invitation invitation, bool shouldAutoAccept=false) {
         GameObject.Find("Invitacion").GetComponent<Text>().text = "en el onInvitationRecieved";
 		if (shouldAutoAccept) {
-            // Invitation should be accepted immediately. This happens if the user already
-            // indicated (through the notification UI) that they wish to accept the invitation,
-            // so we should not prompt again.
-            //ShowWaitScreen();
             PlayGamesPlatform.Instance.RealTime.AcceptInvitation(invitation.InvitationId, sInstance);
-        } else {
-            // The user has not yet indicated that they want to accept this invitation.
-            // We should *not* automatically accept it. Rather we store it and 
-            // display an in-game popup:
+        } 
+		else 
+		{
             mIncomingInvitation = invitation;
 			GameObject.Find("Invitacion").GetComponent<Text>().text = mIncomingInvitation.InvitationId.ToString();
         }
