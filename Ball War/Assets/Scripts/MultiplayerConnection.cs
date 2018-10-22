@@ -190,6 +190,7 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
 		{
             mIncomingInvitation = invitation;
 			GameObject.Find("Invitacion").GetComponent<Text>().text = mIncomingInvitation.InvitationId.ToString();
+			OnGUI();
         }
     }
 
@@ -202,13 +203,13 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
                     mIncomingInvitation.Inviter.DisplayName: " A player,";
             GUI.Label(labelRect, who + " is challenging you to a race!");
             if (GUI.Button(acceptButtonRect, "Accept!")) {
-                // user wants to accept the invitation!
+                // EL USUARIO ACEPTA LA INVITACION
                 //ShowWaitScreen();
                 PlayGamesPlatform.Instance.RealTime.AcceptInvitation(mIncomingInvitation.InvitationId, sInstance);
 				mIncomingInvitation = null;
             }
             if (GUI.Button(declineButtonRect, "Decline")) {
-                // user wants to decline the invitation
+                // EL USUARIO NO ACEPTA LA INVITACION
                 PlayGamesPlatform.Instance.RealTime.DeclineInvitation(mIncomingInvitation.InvitationId);
 				mIncomingInvitation = null;
             }
