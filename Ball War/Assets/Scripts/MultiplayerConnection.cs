@@ -198,20 +198,20 @@ public class MultiplayerConnection : MonoBehaviour, RealTimeMultiplayerListener 
         if (mIncomingInvitation != null) {
             // show the popup
 			GameObject.Find("Invitacion").GetComponent<Text>().text = "Invitacion Recibida";
-            string who = (mIncomingInvitation.Inviter != null && 
-                mIncomingInvitation.Inviter.DisplayName != null) ?
+            string who = (mIncomingInvitation.Inviter != null && mIncomingInvitation.Inviter.DisplayName != null) ?
                     mIncomingInvitation.Inviter.DisplayName: " A player,";
+			GameObject.Find("Invitacion").GetComponent<Text>().text = who;	
             GUI.Label(labelRect, who + " is challenging you to a race!");
             if (GUI.Button(acceptButtonRect, "Accept!")) {
                 // EL USUARIO ACEPTA LA INVITACION
                 //ShowWaitScreen();
                 PlayGamesPlatform.Instance.RealTime.AcceptInvitation(mIncomingInvitation.InvitationId, sInstance);
-				mIncomingInvitation = null;
+				//mIncomingInvitation = null;
             }
             if (GUI.Button(declineButtonRect, "Decline")) {
                 // EL USUARIO NO ACEPTA LA INVITACION
                 PlayGamesPlatform.Instance.RealTime.DeclineInvitation(mIncomingInvitation.InvitationId);
-				mIncomingInvitation = null;
+				//mIncomingInvitation = null;
             }
 		
 		}
